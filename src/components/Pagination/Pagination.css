@@ -1,0 +1,18 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px red solid;
+    gap: 10px;
+}
+ul {
+    font-size: larger;
+    display: flex;
+    flex-direction: row;
+}
+
+li {
+    text-decoration: dotted;
+    padding: 10px;
+    list-style-type: none;
+}

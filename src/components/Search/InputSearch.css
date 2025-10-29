@@ -1,0 +1,128 @@
+/* === Header === */
+header {
+  background: linear-gradient(90deg, #111, #181818);
+  padding: 2rem 1rem;
+  text-align: center;
+  border-bottom: 2px solid #ffd90f33;
+}
+
+/* === Contenedor del buscador === */
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: #f5f5f5;
+}
+
+.search label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #ffd90f;
+  margin-bottom: 0.8rem;
+}
+
+/* === Caja del input y botón === */
+.border {
+  display: flex;
+  align-items: center;
+  background: #1c1c1c;
+  border: 2px solid #ffd90f33;
+  padding-top: 1rem;
+  border-radius: 30px;
+  padding: 0.4rem 0.8rem;
+  width: 100%;
+  max-width: 400px;
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}
+
+.border:hover {
+  border: 2px solid #ffd90f;
+  box-shadow: 0 0 10px #ffd90f33;
+}
+
+/* === Icono de búsqueda === */
+.border svg {
+  color: #ffd90f;
+  margin-right: 8px;
+}
+
+/* === Input === */
+.border input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #f5f5f5;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.border input::placeholder {
+  color: #888;
+}
+
+/* === Botón de búsqueda === */
+.btn-search {
+  background: linear-gradient(90deg, #ffd90f, #f8a100);
+  border: none;
+  color: #000;
+  font-weight: bold;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-search:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 12px rgba(255, 217, 15, 0.6);
+}
+
+/* === Contenedor general de resultados === */
+.results-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 3rem;
+  padding: 2rem;
+  justify-items: center;
+  align-items: start;
+  background: radial-gradient(circle at center, #1e1e1e, #0d0d0d);
+  min-height: 60vh;
+}
+
+/* === Título de resultados === */
+.results-container h3 {
+  grid-column: 1 / -1; /* ocupa todo el ancho del grid */
+  text-align: center;
+  color: #ffd90f;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin: 0 0 1rem 0; /* elimina margen superior */
+  padding: 0.5rem 0;
+  text-shadow: 0 0 6px rgba(255, 217, 15, 0.4);
+  border-bottom: 1px solid rgba(255, 217, 15, 0.25);
+  animation: fadeInTitle 0.5s ease;
+}
+
+/* === Mensaje de “sin resultados” === */
+.no-results {
+  grid-column: 1 / -1;
+  color: #ffd90f;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 2rem 0;
+  text-shadow: 0 0 6px rgba(255, 217, 15, 0.4);
+}
+
+@keyframes fadeInTitle {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
