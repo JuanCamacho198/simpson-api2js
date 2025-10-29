@@ -1,13 +1,12 @@
-/* === Estilo general del contenedor === */
+/* === Contenedor general === */
 section {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
+  gap: 3rem;
   padding: 2rem;
   justify-items: center;
   background: radial-gradient(circle at center, #1e1e1e, #0d0d0d);
   min-height: 100vh;
-  gap: 3rem;
 }
 
 /* === Card === */
@@ -23,6 +22,7 @@ section {
   transform: translateY(0);
   position: relative;
   overflow: hidden;
+  animation: fadeInUp 0.6s ease forwards;
 }
 
 /* === Imagen === */
@@ -40,7 +40,6 @@ section {
   background: linear-gradient(145deg, #2a2a2a, #202020);
 }
 
-/* Imagen hace zoom al pasar el mouse */
 .Simpson-card:hover img {
   transform: scale(1.1);
 }
@@ -53,14 +52,40 @@ section {
   margin-bottom: 0.5rem;
 }
 
-/* === Texto === */
-.Simpson-card p {
-  font-size: 0.95rem;
-  color: #ccc;
-  margin: 0.2rem 0;
+/* === Ocupación === */
+.Simpson-card .occupation {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #9cd3ff;
+  margin-top: 0.3rem;
+  margin-bottom: 0.6rem;
 }
 
-/* === Animación de borde al hacer hover === */
+/* === Edad === */
+.Simpson-card .age {
+  font-size: 0.9rem;
+  color: #b0f2b4;
+  margin: 0.3rem 0;
+}
+
+.Simpson-card .age span {
+  color: #6bff84;
+  font-weight: bold;
+}
+
+/* === Estado === */
+.Simpson-card .status {
+  font-size: 0.9rem;
+  color: #f6b6b6;
+  margin-top: 0.3rem;
+}
+
+.Simpson-card .status span {
+  color: #ff6060;
+  font-weight: bold;
+}
+
+/* === Animación del borde === */
 .Simpson-card::before {
   content: "";
   position: absolute;
@@ -79,7 +104,7 @@ section {
   opacity: 1;
 }
 
-/* === Animación suave al aparecer === */
+/* === Animación suave === */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -89,8 +114,4 @@ section {
     opacity: 1;
     transform: translateY(0);
   }
-}
-
-.Simpson-card {
-  animation: fadeInUp 0.6s ease forwards;
 }
