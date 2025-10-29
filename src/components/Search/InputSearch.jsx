@@ -1,10 +1,12 @@
-import { useRef, useState } from "react"
+import { useContext, useRef, useState } from "react"
 import { filteredSimpsonByName } from "../../services/filteredSimpsonByName"
 import { SimpsonByNames } from "../SimpsonCardId/SimpsonByNames";
+import { PageContext } from "../../context/PageProvider";
 import "./InputSearch.css"
 
 
 export function InputSearch() {
+    const pageActual = useContext(PageContext)
     const [query, setQuery] = useState("");
     const [results, setResults] = useState([]);
     const [searching, setSearching] = useState(false);
@@ -14,7 +16,7 @@ export function InputSearch() {
         if (query.trim() === "") return;
 
         setSearching(true);
-        const simpsons = await filteredSimpsonByName({ search: query });
+        const simpsons = await filteredSimpsonByName({ search: query, pageActual});
         setResults(simpsons);
     };
 

@@ -1,9 +1,9 @@
-export const filteredSimpsonByName = async ({ search }) => {
+export const filteredSimpsonByName = async ({ search , page}) => {
   if (!search || search.trim() === "") return null;
 
   try {
     // Trae todos los personajes
-    const response = await fetch("https://thesimpsonsapi.com/api/characters");
+    const response = await fetch(`https://thesimpsonsapi.com/api/characters?page=${page}`);
     const json = await response.json();
 
     // Filtra los personajes por el término de búsqueda

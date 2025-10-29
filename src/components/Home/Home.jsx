@@ -6,7 +6,8 @@ import { Pagination } from "../Pagination/Pagination.jsx";
 import "./Home.css";
 
 export function Home() {
-  const { pageActual } = useContext(PageContext);
+  const { pageActual, setPageActual } = useContext(PageContext);
+  const TOTAL_PAGES = Math.ceil(1182 / 20);
 
   return (
     <>
@@ -20,7 +21,10 @@ export function Home() {
         <SimpsonCard page={pageActual} />
       </main>
       <footer>
-        <Pagination page={pageActual} />
+        <Pagination 
+            totalPages={TOTAL_PAGES} 
+            pageActual={pageActual} 
+            onPageChange={(newPage) => setPageActual(newPage)}/>
       </footer>
     </>
   );

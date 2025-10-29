@@ -1,38 +1,72 @@
-import useFetchSimpsons from "../../hooks/useFetchSimpsons.js";
-import { useContext } from "react";
-import { PageContext } from "../../context/PageProvider";
-
+import { useState, useEffect } from "react";
 import "./Pagination.css";
 
-export function Pagination({ page }) {
-  const { data, loading, error } = useFetchSimpsons(
-    `https://thesimpsonsapi.com/api/characters?page=${page}`
-  );
+export function Pagination({ totalPages, pageActual, onPageChange }) {
+  const [currentPage, setCurrentPage] = useState(pageActual);
 
-  if (error) return <p>Error: {error}</p>;
-  if (!data || loading) return <p>Cargando...</p>;
+  useEffect(() => {
+    setCurrentPage(pageActual);
+  }, [pageActual]);
 
-  const TOTAL_PAGES = Math.ceil(data.count / 20);
+  //array de páginas
+  const pages = Array.from({ length: totalPages }, (_, i) => i + 1);
 
-  const handlePagination = () => {
-    if (page > 1 && page < TOTAL_PAGES) {
-      setPageActual(page + 1);
+  //rango de páginas (6 por defecto)
+  const start = Math.max(0, currentPage - 3);
+  const visiblePages = pages.slice(start, start + 6);
+
+ 
+  const handlePreviousPage = () => {
+    if (currentPage > 1) {
+      const newPage = currentPage - 1;
+      setCurrentPage(newPage);
+      onPageChange(newPage);
     }
   };
-  const { pageActual, setPageActual } = useContext(PageContext);
+
+  const handleNextPage = () => {
+    if (currentPage < totalPages) {
+      const newPage = currentPage + 1;
+      setCurrentPage(newPage);
+      onPageChange(newPage);
+    }
+  };
+
+  const handleChangePage = (page) => {
+    if (page === currentPage) return;
+    setCurrentPage(page);
+    onPageChange(page);
+  };
+
   return (
     <footer>
-      <div className="pagination">
-        <ul>
-          <li>-</li>
-          <li>1</li>
-          <li>2</li>
-          <li>3</li>
-          <li>4</li>
-          <li>5</li>
-          <li onClick={handlePagination}>+</li>
-        </ul>
-      </div>
+      <nav className="pagination">
+        <button
+          onClick={handlePreviousPage}
+          disabled={currentPage === 1}
+          className="nav-btn"
+        >
+          ←
+        </button>
+
+        {visiblePages.map((page) => (
+          <button
+            key={page}
+            onClick={() => handleChangePage(page)}
+            className={`page-btn ${page === currentPage ? "active" : ""}`}
+          >
+            {page}
+          </button>
+        ))}
+
+        <button
+          onClick={handleNextPage}
+          disabled={currentPage === totalPages}
+          className="nav-btn"
+        >
+          →
+        </button>
+      </nav>
     </footer>
   );
 }
