@@ -1,5 +1,6 @@
+
 export const filteredSimpsonByName = async ({ search , page}) => {
-  if (!search || search.trim() === "") return null;
+  if (!search || search === "") return null;
 
   try {
     // Trae todos los personajes
