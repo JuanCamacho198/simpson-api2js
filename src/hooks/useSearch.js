@@ -22,11 +22,6 @@ export function useSearch() {
             return
         }
 
-        if (query.length < 3) {
-            setError('La búsqueda debe tener al menos 3 caracteres')
-            return
-        }
-
         setError(null)
     }, [query])
 
