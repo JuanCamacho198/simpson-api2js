@@ -1,6 +1,6 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useRef } from "react";
 import { useFilteredSimpsonByName } from "../../hooks/useFilteredSimpsonByName";
-import { SimpsonByNames } from "../SimpsonCardId/SimpsonByNames";
+import { SimpsonByNames } from "../SimpsonCardNames/SimpsonByNames";
 import { PageContext } from "../../context/PageProvider";
 import debounce from "just-debounce-it";
 import { useSearch } from "../../hooks/useSearch";

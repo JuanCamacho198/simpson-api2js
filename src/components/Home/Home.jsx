@@ -1,4 +1,4 @@
-import SimpsonCard from "../SimpsonCard/SimpsonPage";
+import { SimpsonPage } from "../SimpsonCard/SimpsonPage";
 import { useContext } from "react";
 import { PageContext } from "../../context/PageProvider.jsx";
 import { InputSearch } from "../Search/InputSearch.jsx";
@@ -18,13 +18,13 @@ export function Home() {
           Aquí puedes buscar información sobre tus personajes favoritos de Los
           Simpson.
         </p>
-        <SimpsonCard page={pageActual} />
+        <SimpsonPage page={pageActual} />
       </main>
       <footer>
-        <Pagination 
-            totalPages={TOTAL_PAGES} 
-            pageActual={pageActual} 
-            onPageChange={(newPage) => setPageActual(newPage)}/>
+        <Pagination
+          totalPages={TOTAL_PAGES}
+          pageActual={pageActual}
+          onPageChange={(newPage) => setPageActual(newPage)} />
       </footer>
     </>
   );

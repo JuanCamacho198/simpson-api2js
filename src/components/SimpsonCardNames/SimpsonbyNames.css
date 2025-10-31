@@ -42,11 +42,37 @@
   margin-bottom: 0.5rem;
 }
 
-/* === Texto general === */
-.simpsons-card p {
-  font-size: 0.95rem;
-  color: #ccc;
-  margin: 0.2rem 0;
+/* === Ocupación === */
+.simpsons-card .occupation {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #9cd3ff;
+  margin-top: 0.3rem;
+  margin-bottom: 0.6rem;
+}
+
+/* === Edad === */
+.simpsons-card .age {
+  font-size: 0.9rem;
+  color: #b0f2b4;
+  margin: 0.3rem 0;
+}
+
+.simpsons-card .age span {
+  color: #6bff84;
+  font-weight: bold;
+}
+
+/* === Estado === */
+.simpsons-card .status {
+  font-size: 0.9rem;
+  color: #f6b6b6;
+  margin-top: 0.3rem;
+}
+
+.simpsons-card .status span {
+  color: #ff6060;
+  font-weight: bold;
 }
 
 /* === Animación de borde al hacer hover === */

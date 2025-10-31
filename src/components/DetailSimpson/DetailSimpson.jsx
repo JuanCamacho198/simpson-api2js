@@ -1,4 +1,4 @@
-export function DetailSimpson({ simpson_id }) {
+export function DetailSimpson( ) {
     return (
         <main>
             <h1>Detalle del personaje</h1>

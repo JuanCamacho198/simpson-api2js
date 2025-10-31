@@ -1,8 +1,9 @@
 import useFetchSimpsons from "../../hooks/useFetchSimpsons";
-
+import { useNavigate } from "react-router-dom";
 import "./SimpsonCard.css";
 
-function SimpsonPage({ page }) {
+export function SimpsonPage({ page }) {
+  let navigate = useNavigate(); 
   const { data, loading, error } = useFetchSimpsons(
     `https://thesimpsonsapi.com/api/characters?page=${page}`
   );
@@ -13,7 +14,7 @@ function SimpsonPage({ page }) {
   return (
     <section>
       {data.results.map((simpson) => (
-        <div className="Simpson-card" key={simpson.id}>
+        <div className="Simpson-card" key={simpson.id} onClick={() => navigate(`/simpson/${simpson.id}`)}>
           <h2>{simpson.name}</h2>
           <img
             src={`https://cdn.thesimpsonsapi.com/200${simpson.portrait_path}`}

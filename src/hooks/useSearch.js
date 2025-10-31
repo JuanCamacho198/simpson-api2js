@@ -13,7 +13,7 @@ export function useSearch() {
         }
 
         if (query === '') {
-            setError('No se puede buscar un personaje vacía')
+            setError('No se puede buscar un personaje vacío')
             return
         }
 
