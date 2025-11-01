@@ -16,7 +16,7 @@ footer{
     background: #fdd835;
     color: #333;
     padding: 0.5rem 0.9rem;
-    border-radius: 50%;
+    border-radius: 10%;
     font-weight: bold;
     cursor: pointer;
     transition: all 0.2s ease-in-out;
@@ -24,13 +24,13 @@ footer{
   
   .page-btn:hover,
   .nav-btn:hover {
-    background: #fbc02d;
+    background: #e9e5dc;
     transform: scale(1.1);
   }
   
   .page-btn.active {
-    background: #ffb300;
-    color: white;
+    background: #ff7b00;
+    color: rgb(0, 0, 0);
     transform: scale(1.15);
   }
   

@@ -1,0 +1,234 @@
+html, body {
+  background-color: #0d0d0d;
+  color-scheme: dark;
+  margin: 0;
+  padding: 0;
+}
+
+/* === Fondo general === */
+.detail-simpson {
+  min-height: 100vh;
+  padding: 3rem 1.5rem;
+  background: radial-gradient(circle at center, #1e1e1e, #0d0d0d);
+  color: #f5f5f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* === Contenedor principal === */
+.detail-container {
+  width: 100%;
+  max-width: 900px;
+  background: linear-gradient(145deg, #222, #1a1a1a);
+  border-radius: 20px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  position: relative;
+  padding: 2rem;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  transition: all 0.4s ease;
+}
+
+/* Borde animado tipo neón */
+.detail-container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(120deg, #ffd90f, #f8a100, #ffd90f);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: destination-out;
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* === Encabezado === */
+.detail-header {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+}
+
+/* === Imagen del personaje === */
+.detail-portrait {
+  width: 220px;
+  height: 220px;
+  border-radius: 15%;
+  object-fit: cover;
+  border: 4px solid #ffd90f;
+  box-shadow: 0 0 25px rgba(82, 80, 71, 0.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.detail-portrait:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 217, 15, 0.6);
+}
+
+/* === Información principal === */
+.detail-info {
+  flex: 1;
+}
+
+.detail-name {
+  font-size: 2.8rem;
+  color: #ffd90f;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(255, 217, 15, 0.4);
+}
+
+/* === Estadísticas === */
+.detail-stats {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  font-size: 1rem;
+}
+
+.stat-item {
+  background: #333;
+  border-radius: 10px;
+  padding: 0.5rem 1rem;
+  color: #9cd3ff;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(255, 255, 255, 0.05);
+}
+
+.stat-item strong {
+  color: #ffd90f;
+}
+
+/* === Estados === */
+.status {
+  padding: 0.2rem 0.7rem;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.status.alive {
+  background-color: #6bff84;
+  color: #0d0d0d;
+}
+
+.status.dead {
+  background-color: #ff6060;
+  color: white;
+}
+
+/* === Ocupación === */
+.detail-occupation {
+  font-size: 1.1rem;
+  color: #9cd3ff;
+  margin-top: 1rem;
+  font-style: italic;
+}
+
+/* === Sección "About" === */
+.detail-description {
+  margin-top: 2rem;
+  border-top: 1px solid #333;
+  padding-top: 1.5rem;
+}
+
+.detail-description h2 {
+  color: #ffd90f;
+  font-size: 1.8rem;
+  margin-bottom: 0.8rem;
+  text-shadow: 0 0 6px rgba(255, 217, 15, 0.3);
+}
+
+.detail-description p {
+  color: #f5f5f5;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+/* === Sección "Famous Phrases" === */
+.detail-phrases {
+  margin-top: 2rem;
+}
+
+.detail-phrases h2 {
+  color: #ffd90f;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.phrases-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.phrase-item {
+  background: linear-gradient(145deg, #2a2a2a, #202020);
+  border-radius: 12px;
+  padding: 1rem 1.5rem;
+  color: #b0f2b4;
+  font-size: 1rem;
+  font-style: italic;
+  box-shadow: 0 3px 10px rgba(255, 255, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.phrase-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(255, 255, 0, 0.25);
+}
+
+/* === Loading & Error === */
+.detail-loading,
+.detail-error {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.detail-loading {
+  color: #ffd90f;
+}
+
+.detail-error {
+  color: #ff6060;
+}
+
+/* === Responsivo === */
+@media (max-width: 768px) {
+  .detail-header {
+    flex-direction: column;
+  }
+
+  .detail-portrait {
+    width: 180px;
+    height: 180px;
+  }
+
+  .detail-name {
+    font-size: 2.2rem;
+  }
+
+  .detail-stats {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .detail-container {
+    padding: 1.5rem;
+  }
+}
